@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="jumbotron" id="title">
+              <h1>Word-Frequency-Finder</h1>
+            </div>
+            <!-- jumbotron -->
+          </div>
+          <!-- column title -->
+        </div>
+        <!-- top row -->
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="jumbotron">
+              <h3>Create by Carlos Munoz Kampff</h3>
+              <p>More from my GitHub:</p>
+              <ul>
+                <li></li>
+              </ul>
+            </div>
+            <!-- jumbotron -->
+          </div>
+          <!-- left column -->
+          <div class="col-sm-8">
+            <div class="jumbotron">
+              <form action="/display" method="post">
+                <div class="form-group">
+                  <label for="word_to_match">word to match (not case sensitive):</label>
+                  <input type="text" name="word_to_match" placeholder="waldo"><br>
+                  <label for="word_to_match_exact">word to match exact:</label>
+                  <input type="text" name="word_to_match_exact" placeholder="Waldo"><br>
+                  <label for="word_to_replace">word to replace exact:</label>
+                  <input type="text" name="word_to_replace" placeholder="Waldorf"><br>
+                  <label for="word_to_search">text to search:</label><br>
+                  <textarea name="moreinfo" cols="60" rows="10" required="required">
+                  </textarea><input type="reset">
+                  <input type="text" name="word_to_search" placeholder="Where is Waldo?"><br>
+                </div>
+                <!-- form group -->
+                <button type="submit" class="btn btn-primary" name="button">Submit</button>
+              </form>
+            </div>
+            <!-- jumbotron -->
+          </div>
+          <!-- right column -->
+        </div>
+        <!-- second row -->
+      </div>
+      <!-- container -->
+    </body>
+</html>
