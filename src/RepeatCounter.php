@@ -83,7 +83,11 @@ class RepeatCounter
     {
         return $this->text_to_find;
     }
-    
+    function getTextToSearch()
+    {
+        return $this->text_to_search;
+    }
+
 }
 
  ?>

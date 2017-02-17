@@ -31,8 +31,12 @@
           <!-- left column -->
           <div class="col-sm-8">
             <div class="jumbotron">
-              <h4>We have found {{  }} that are case sensitive</h4>
-
+              <h4>We have found {{ allMatches }} that are not case sensitive</h4>
+              <h4>We have found {{ exactMatches }} that are case sensitive</h4>
+              <h4>Here's your text with edits: </h4>
+              <div class="well">
+                <p> {{ newText }}</p>
+              </div>
             </div>
             <!-- jumbotron -->
           </div>

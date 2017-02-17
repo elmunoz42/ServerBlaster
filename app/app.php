@@ -3,11 +3,11 @@
     require_once __DIR__."/../vendor/autoload.php";
     require_once __DIR__."/../src/RepeatCounter.php";
 
-    session_start();
-
-    if (empty($_SESSION[''])) {
-        $_SESSION[''] = array();
-    }
+    // session_start();
+    //
+    // if (empty($_SESSION[''])) {
+    //     $_SESSION[''] = array();
+    // }
 
     $app = new Silex\Application();
 
@@ -30,10 +30,17 @@
 
 
         $newWordProcess = new RepeatCounter($_POST['word_to_match'], $_POST['word_to_search']);
-        $exactMatches = $newWordProcess->CountExactRepeats($this->text_to_find, $this->text_to_search);
-        $allMatches = $newWordProcess->CountRepeats($this->text_to_find, $this->text_to_search);
-        // $newText = $newWordProcess->TextReplace($this->text_to_find, $this->text_to_search, $_POST['word_to_replace']);
-        return $app['twig']->render('repeat-counter-display.html.twig', array('newWordProcess'=>$newWordProcess));
+        $newWordToMatch = $_POST['word_to_match'];
+        $newWordToSearch = $_POST['word_to_search'];
+        $newWordToReplace = $_POST['word_to_replace'];
+        $exactMatches = $newWordProcess->CountExactRepeats($newWordToMatch, $newWordToSearch);
+        $allMatches = $newWordProcess->CountRepeats($newWordToMatch, $newWordToSearch);
+        if ( $newWordToReplace == "" ){
+            $newText = $newWordProcess->TextReplace($newWordToMatch, $newWordToSearch, $newWordToMatch);
+        }else{
+        $newText = $newWordProcess->TextReplace($newWordToMatch, $newWordToSearch, $newWordToReplace);
+        }
+        return $app['twig']->render('repeat-counter-display.html.twig', array( 'exactMatches'=>$exactMatches, 'allMatches'=>$allMatches, 'newText' => $newText ));
 
     });
 
