@@ -21,9 +21,9 @@ class RepeatCounter
         $this->count = 0;
         $input_to_find = strtolower( (string) $new_text_to_find);
         $input_to_search = strtolower( (string) $new_text_to_search);
-        $input_no_possessive = implode(" ", explode("'", $input_to_search));
-        // same for other punctuation !!!
-        $to_search_array = explode(" ", $input_no_possessive );
+        $input_no_punctuation_possessives =implode (" ", (explode(".",implode(" ", (explode(",",implode(" ", explode("'", $input_to_search))))))));
+
+        $to_search_array = explode(" ", $input_no_punctuation_possessives );
         foreach ( $to_search_array as $word ){
             if ( $input_to_find == $word){
                 $this->count++;
@@ -41,8 +41,8 @@ class RepeatCounter
         $this->count_exact = 0;
         $input_to_find = (string) $new_text_to_find;
         $input_to_search = (string) $new_text_to_search;
-        $input_no_possessive = implode(" ", explode("'", $input_to_search));
-        $to_search_array = explode(" ", $input_no_possessive );
+        $input_no_punctuation_possessives =implode (" ", (explode(".",implode(" ", (explode(",",implode(" ", explode("'", $input_to_search))))))));
+        $to_search_array = explode(" ", $input_no_punctuation_possessives );
         foreach ( $to_search_array as $word ){
             if ( $input_to_find == $word){
                 $this->count_exact++;
@@ -54,6 +54,8 @@ class RepeatCounter
             return $this->count_exact . ' exact matches';
         }
     }
+
+    // CASE SENSITIVE! DOES NOT YET DEAL WITH PUNCTUATION.
     function TextReplace($new_text_to_find, $new_text_to_search, $replacement_text)
     {
         $this->replacement_count = 0;
