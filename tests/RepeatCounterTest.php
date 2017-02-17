@@ -57,6 +57,16 @@
             $this->assertEquals(1 . ' exact match', $result);
 
         }
+        function test_TextReplace()
+        {
+            $test_input_to_match = "apple";
+            $test_input_to_search = "The Apple logo is meaningful because it alludes to the apple in the tree of knowledge.";
+            $test_input_to_replace = "orange";
+            $test_object = new RepeatCounter($test_input_to_match, $test_input_to_search);
+            $result = $test_object->CountExactRepeats($test_input_to_match, $test_input_to_search);
+            $this->assertEquals("The Apple logo is meaningful because it alludes to the orange in the tree of knowledge.", $result);
+
+        }
     }
 
  ?>
