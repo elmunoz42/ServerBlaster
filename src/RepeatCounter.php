@@ -83,6 +83,7 @@ class RepeatCounter
     {
         return $this->text_to_find;
     }
+    
 }
 
  ?>
