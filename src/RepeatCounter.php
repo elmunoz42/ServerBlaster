@@ -1,9 +1,9 @@
 <?php
 class RepeatCounter
 {
-    private $text_to_find;
-    private $text_to_search;
-    private $count;
+    public $text_to_find;
+    public $text_to_search;
+    public $count;
 
     function __construct($new_text_to_find, $new_text_to_search)
     {
@@ -13,7 +13,14 @@ class RepeatCounter
     }
     function CountRepeats($new_text_to_find, $new_text_to_search)
     {
-        return "test";
+        $this->count = 0;
+        // $to_search_array = str_split($new_text_to_search);
+        // $this->count = array_search($to_search_array);
+
+        if ($new_text_to_find == $new_text_to_search){
+            $this->count++;
+        }
+        return $this->count;
     }
 
     function setTextToFind( $new_text_to_find )
