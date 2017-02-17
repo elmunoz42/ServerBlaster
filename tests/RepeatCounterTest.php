@@ -53,8 +53,8 @@
             $test_input_to_match = "apple";
             $test_input_to_search = "The Apple logo is meaningful because it alludes to the apple in the tree of knowledge.";
             $test_object = new RepeatCounter($test_input_to_match, $test_input_to_search);
-            $result = $test_object->CountRepeats($test_input_to_match, $test_input_to_search);
-            $this->assertEquals(1 . ' match', $result);
+            $result = $test_object->CountExactRepeats($test_input_to_match, $test_input_to_search);
+            $this->assertEquals(1 . ' exact match', $result);
 
         }
     }
