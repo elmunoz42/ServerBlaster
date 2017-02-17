@@ -44,7 +44,7 @@ _No support._
 * _PHP_
 * _Silex_
 * _Twig_
-* _PHPUNIT_
+* _PHPUNIT tests_
 
 ### License
 
