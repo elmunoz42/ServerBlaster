@@ -68,6 +68,15 @@
             $this->assertEquals("The Apple logo is meaningful because it alludes to the orange in the tree of knowledge.", $result);
 
         }
+        function test_multiple_matches_punctuation()
+        {
+            $test_input_to_match = "apple";
+            $test_input_to_search = "Apple, banana, orange.";
+            $test_object = new RepeatCounter($test_input_to_match, $test_input_to_search);
+            $result = $test_object->CountRepeats($test_input_to_match, $test_input_to_search);
+            $this->assertEquals(1 . ' match', $result);
+
+        }
     }
 
  ?>
