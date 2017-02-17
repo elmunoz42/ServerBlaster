@@ -25,7 +25,7 @@ class RepeatCounter
 
     function setTextToFind( $new_text_to_find )
     {
-        $this->text_to_find = (string) $new_text_to_find;
+        $this->text_to_find = strtolower( (string) $new_text_to_find);
     }
     function getTextToFind()
     {
