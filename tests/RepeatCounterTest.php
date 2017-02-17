@@ -11,15 +11,23 @@
             $test_input_to_search = "apple";
             $test_object = new RepeatCounter($test_input_to_match, $test_input_to_search);
             $result = $test_object->CountRepeats($test_input_to_match, $test_input_to_search);
-            $this->assertEquals(1, $result);
+            $this->assertEquals(1 . ' match', $result);
         }
         function test_one_anycase_match()
         {
-            $test_input_to_match = strtolower("Apple");
+            $test_input_to_match = "Apple";
             $test_input_to_search = "apple";
-            $test_object = new RepeatCounter($test_input_to_search, $test_input_to_match);
+            $test_object = new RepeatCounter($test_input_to_match, $test_input_to_search);
             $result = $test_object->CountRepeats($test_input_to_match, $test_input_to_search);
-            $this->assertEquals(1, $result);
+            $this->assertEquals(1 . ' match', $result);
+        }
+        function test_zero_match()
+        {
+            $test_input_to_match = "apple";
+            $test_input_to_search = "orange";
+            $test_object = new RepeatCounter($test_input_to_match, $test_input_to_search);
+            $result = $test_object->CountRepeats($test_input_to_match, $test_input_to_search);
+            $this->assertEquals(0 . ' matches', $result);
         }
     }
 
