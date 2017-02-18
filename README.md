@@ -13,7 +13,6 @@ _By using search and counting functions this app can help the user find any word
 | Behavior                                              |   Input example   |  Output example |
 |-------------------------------------------------------|:-----------------:|:---------------:|
 |1)User inputs a lowercase word and inputs the same lowercase word. The test will check that the lowercase word is matched and counted once. | "apple", "apple" | 1 match |
-
 |2a)User inputs an uppercase word and inputs the same word in lowercase. The test will check that the word is matched regardless of case and be counted once. | "Apple", "apple" | 1 match|
 |2b)User inputs a word and inputs a different word. The test will check that no match is found | "apple", "orange"| 0 matches |
 3)User inputs a word and inputs a phrase that includes the word twice. The test will check that the word is counted twice ignoring other input.| "apple", "The Apple logo is meaningful because it alludes to the apple in the tree of knowledge." | 2 matches |

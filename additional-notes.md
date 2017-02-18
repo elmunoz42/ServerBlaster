@@ -1,5 +1,5 @@
 
-NOTE A)
+_NOTE A)
 
 tryed to solve issue of punctuation after a possessive:
 
@@ -24,4 +24,4 @@ if ($output_array_w_spaces[$y+1] == "," && $output_array_w_spaces[$y] == " " |
 {
   array_splice($output_array_w_spaces, $y-1, 2, "");
   array_splice($output_array_w_spaces, $y, 2, "");
-}
+}_
