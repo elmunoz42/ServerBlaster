@@ -3,8 +3,8 @@ _NOTE A)
 
 tryed to solve issue of punctuation after a possessive:
 
-test that fails:
-function test_TextReplacePonctuation_poss()
+test that fails:_
+_function test_TextReplacePonctuation_poss()
 {
     $test_input_to_match = "orange";
     $test_input_to_search = "Apple, banana's, orange.";
@@ -14,10 +14,10 @@ function test_TextReplacePonctuation_poss()
     // $this->assertEquals(16, $result);
     $this->assertEquals("Apple, banana's, fig.", $result);
 
-}
+}_
 
-// solution I'm trying... insert into
-if ($output_array_w_spaces[$y+1] == "," && $output_array_w_spaces[$y] == " " |
+_// solution I'm trying... insert into NOTE A) in RepeatCounter.php (currently line 96):_
+_if ($output_array_w_spaces[$y+1] == "," && $output_array_w_spaces[$y] == " " |
         $output_array_w_spaces[$y+1] == "." && $output_array_w_spaces[$y] == " " |
         $output_array_w_spaces[$y+1] == "?" && $output_array_w_spaces[$y] == " "
         )
