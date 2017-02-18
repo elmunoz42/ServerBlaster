@@ -55,29 +55,47 @@ class RepeatCounter
         }
     }
 
-    // CASE SENSITIVE! DOES NOT YET DEAL WITH PUNCTUATION.
+    // CASE SENSITIVE!
     function TextReplace($new_text_to_find, $new_text_to_search, $replacement_text)
     {
         $this->replacement_count = 0;
         $input_to_find = (string) $new_text_to_find;
         $input_to_search = (string) $new_text_to_search;
-        $input_no_possessive = implode(" ", explode("'", $input_to_search));
-        $to_search_array = explode(" ", $input_no_possessive );
+        $input_no_punctuation_possessives =implode (" .", (explode(".",implode(" ,", (explode(",",implode(" '", explode("'", $input_to_search))))))));
+        $to_search_array = explode(" ", $input_no_punctuation_possessives );
         $x=0;
         foreach ( $to_search_array as $word ){
             if ( $input_to_find == $word){
                 array_splice($to_search_array, $x, 1, $replacement_text);
                 $this->replacement_count++;
             }
+            elseif ( $word=="," || $word=="'" || $word==".") {
+                // will attach punctuation back to the previous word... hopefully.
+                $previous_word_w_punctuation = $to_search_array[$x-1] . $word ;
+                array_splice($to_search_array, $x-1, 1, $previous_word_w_punctuation );
+                array_splice($to_search_array, $x, 1, "");
+
+            }
             $x++;
         }
-        $output_string = implode(" ", $to_search_array);
+        $output_array_w_spaces = str_split(implode(" ", $to_search_array));
+        $output_array = array();
+        $y=0;
+        // will erase space after a punctuation.
+        foreach ( $output_array_w_spaces as $characters ) {
+          if ( $output_array_w_spaces[$y] == " " && $output_array_w_spaces[$y-1] == " "){
+            array_splice($output_array_w_spaces, $y, 1, "");
+          }
+          $y++;
+        }
+        // will erase space after final punctuation.
+        if ($output_array_w_spaces[count($output_array_w_spaces)-1]==" "){
+           array_pop($output_array_w_spaces);
+        }
+        $output_string = implode("",$output_array_w_spaces);
         return $output_string;
-        // if ($this->count==1) {
-        //     return $this->replacement_count . ' replacement';
-        // }else{
-        //     return $this->replacement_count . ' replacements';
-        // }
+
+        // I WILL NEVER SAY ANYTHING BAD ABOUT REG EX EVER EVER EVER!!
     }
     function getTextToFind()
     {

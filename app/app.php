@@ -44,14 +44,5 @@
 
     });
 
-    // public $text_to_find;
-    // public $text_to_search;
-    // $app->post("/display", function() use($app) {
-    //
-    //     $newReplacementWord = $_POST['word_to_replace'];
-    //     $newWordProcess = new RepeatCounter($_POST['word_to_match'], $_POST['word_to_search']);
-    //     return $app['twig']->render('repeat-counter-display.html.twig', array());
-    //
-    // });
      return $app;
 ?>
