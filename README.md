@@ -6,7 +6,7 @@
 
 ## Description
 
-_By using search and counting functions this app can help the user find any word within the given text. It will also say how many case sensitive and non-case sensitive matches there where. It also allows the user to replace text for case sensitive matches. 
+_By using search and counting functions this app can help the user find any word within the given text. It will say how many case sensitive and non-case sensitive matches there where, and it will also allow the user to replace (case sensitive) text with a given replacement.
 
 ## Specifications
 
@@ -17,7 +17,7 @@ _By using search and counting functions this app can help the user find any word
 |2b)User inputs a word and inputs a different word. The test will check that no match is found | "apple", "orange"| 0 matches |
 3)User inputs a word and inputs a phrase that includes the word twice. The test will check that the word is counted twice ignoring other input.| "apple", "The Apple logo is meaningful because it alludes to the apple in the tree of knowledge." | 2 matches |
 3b)User inputs a word and inputs a phrase that includes the word twice. The test will check that the word is matched even if followed by possessive -'s-| "apple", "Apple's logo is meaningful because it alludes to the apple in the tree of knowledge." | 2 matches |
-4)User inputs a word and choses by button press to look for and count only the case specific matches. The test will check that the match is indeed case sensitive. | "apple", "The Apple logo is meaningful because it alludes to the apple in the tree of knowledge."| 1 exact match |
+4)User inputs a word and receives the case specific matches. The test will check that the match is indeed case sensitive. | "apple", "The Apple logo is meaningful because it alludes to the apple in the tree of knowledge."| 1 exact match |
 5)User inputs a word, text to search and a replacement word. It will replace only case specific words. The test will check if the phrase is changed correctly. | "apple", "The Apple logo is meaningful because it alludes to the apple in the tree of knowledge.", "orange" | "The Apple logo is meaningful because it alludes to the orange in the tree of knowledge."|
 6)User inputs phrases with punctuation and returns can find matches. The test will check that a match is found even if the word has an adjacent punctuation. | "apple", "Apple, banana, orange."| 1 match |
 6b)Inputed word immediately followed by punctuation is correctly displayed and replaced. | "orange", "Apple, banana, orange.", "Fig" | "Apple, banana, fig."|
