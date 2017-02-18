@@ -28,7 +28,7 @@ _By using search and counting functions this app can help the user find any word
 ## Setup/Installation Requirements
 
 
-* _Clone repository from github. https://github.com/elmunoz42/
+* _Clone repository from github. https://github.com/elmunoz42/word-frequency
 * _In Terminal (when using Mac computer) run: Install composer_
 * _Initiate a php server in terminal within the project directory._
   _In Terminal (when using Mac computer) Open localhost:8000_
