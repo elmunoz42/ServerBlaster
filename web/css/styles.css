@@ -1,0 +1,28 @@
+html {
+  background-color: lightblue;
+}
+body {
+
+  margin-top: 0px;
+  margin-bottom: 0px;
+  background: url('jumbo-pix3.jpeg') no-repeat center center;
+  width: 100%;
+  background-size: 1200px;
+}
+#title  {
+  margin-top: 10px;
+  background-color: turquoise;
+  color: white;
+  text-shadow: grey 0.1em 0.1em 0.1em;
+  text-align: center;
+}
+.jumbotron {
+  /*background-image: url("css/jumbo-pix1.jpg") no-repeat center center;
+  width: 100%;*/
+
+  background:transparent;
+  /*background-color: turquoise;*/
+}
+.jumbotron p {
+  font-size: 17px;
+}
