@@ -6,7 +6,7 @@
 
 ## Description
 
-_By using search and counting functions this app can help the user find any word within the given text. It will also say how many time that text occurred.
+_By using search and counting functions this app can help the user find any word within the given text. It will also say how many case sensitive and non-case sensitive matches there where. It also allows the user to replace text for case sensitive matches. 
 
 ## Specifications
 
