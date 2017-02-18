@@ -3,12 +3,6 @@
     require_once __DIR__."/../vendor/autoload.php";
     require_once __DIR__."/../src/RepeatCounter.php";
 
-    // session_start();
-    //
-    // if (empty($_SESSION[''])) {
-    //     $_SESSION[''] = array();
-    // }
-
     $app = new Silex\Application();
 
     $app['debug'] = true;

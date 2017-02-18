@@ -3,25 +3,48 @@ html {
 }
 body {
 
+  background-color:    #3d5f85  ;
+
+}
+h5 {
+  font-size: 17px;
+}
+input {
+  margin-bottom: 10px;
+}
+#content {
+  border-radius: 8px;
+  margin-right: 4px;
+  margin-left: 4px;
   margin-top: 0px;
-  margin-bottom: 0px;
+  margin-bottom: 10px;
   background: url('jumbo-pix3.jpeg') no-repeat center center;
-  width: 100%;
-  background-size: 1200px;
+  background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  -webkit-background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  border-color: white;
+  border-style: groove;
+  border-width: 2px;
 }
 #title  {
   margin-top: 10px;
-  background-color: turquoise;
   color: white;
   text-shadow: grey 0.1em 0.1em 0.1em;
   text-align: center;
+  background: #000 url("jumbo-pix9.jpeg") no-repeat center center;
+  background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  -webkit-background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  border-color: white;
+  border-style: groove;
+  border-width: 2px;
 }
+
 .jumbotron {
-  /*background-image: url("css/jumbo-pix1.jpg") no-repeat center center;
-  width: 100%;*/
 
   background:transparent;
-  /*background-color: turquoise;*/
 }
 .jumbotron p {
   font-size: 17px;

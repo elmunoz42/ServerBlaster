@@ -92,6 +92,7 @@
             $this->assertEquals("Apple, banana, fig.", $result);
 
         }
+        
     }
 
  ?>

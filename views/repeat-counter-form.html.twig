@@ -10,17 +10,17 @@
         <div class="row">
           <div class="col-sm-12">
             <div class="jumbotron" id="title">
-              <h1>Word Finder Replacer</h1>
+              <h1>Words</h1>
             </div>
             <!-- jumbotron -->
           </div>
           <!-- column title -->
         </div>
         <!-- top row -->
-        <div class="row">
+        <div class="row" id="content">
           <div class="col-sm-4">
             <div class="jumbotron">
-              <h4>Created by Carlos Munoz Kampff</h4>
+              <h5>Created by <br> Carlos Munoz Kampff</h5>
               <p>More from my GitHub:</p>
               <ul>
                 <li><a href="https://elmunoz42.github.io/CMK-Portfolio/">CMK Portfolio</a></li>
@@ -46,10 +46,10 @@
                 <div class="form-group">
                   <label for="word_to_match">word to match (not case sensitive):</label><br>
                   <input type="text" name="word_to_match" placeholder="waldo"><br>
-                  <label for="word_to_replace">word to replace exact:</label><br>
+                  <label for="word_to_replace">word to replace (case sensitive):</label><br>
                   <input type="text" name="word_to_replace" placeholder="Waldorf"><br>
                   <label for="word_to_search">text to search:</label><br>
-                  <textarea name="word_to_search" cols="60" rows="10" required="required">
+                  <textarea name="word_to_search" cols="48" rows="10" required="required">
                   </textarea><br>
                   <input type="reset">
                 </div>

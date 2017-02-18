@@ -21,7 +21,7 @@ class RepeatCounter
         $this->count = 0;
         $input_to_find = strtolower( (string) $new_text_to_find);
         $input_to_search = strtolower( (string) $new_text_to_search);
-        $input_no_punctuation_possessives =implode (" ", (explode(".",implode(" ", (explode(",",implode(" ", explode("'", $input_to_search))))))));
+        $input_no_punctuation_possessives =implode(" !", explode("!", implode(" ?",(explode("?",(implode (" .", (explode(".",implode(" ,", (explode(",",implode(" ' ", explode("'", $input_to_search))))))))))))));
 
         $to_search_array = explode(" ", $input_no_punctuation_possessives );
         foreach ( $to_search_array as $word ){
@@ -41,7 +41,7 @@ class RepeatCounter
         $this->count_exact = 0;
         $input_to_find = (string) $new_text_to_find;
         $input_to_search = (string) $new_text_to_search;
-        $input_no_punctuation_possessives =implode (" ", (explode(".",implode(" ", (explode(",",implode(" ", explode("'", $input_to_search))))))));
+        $input_no_punctuation_possessives =implode(" !", explode("!", implode(" ?",(explode("?",(implode (" .", (explode(".",implode(" ,", (explode(",",implode(" ' ", explode("'", $input_to_search))))))))))))));
         $to_search_array = explode(" ", $input_no_punctuation_possessives );
         foreach ( $to_search_array as $word ){
             if ( $input_to_find == $word){
@@ -61,31 +61,40 @@ class RepeatCounter
         $this->replacement_count = 0;
         $input_to_find = (string) $new_text_to_find;
         $input_to_search = (string) $new_text_to_search;
-        $input_no_punctuation_possessives =implode (" .", (explode(".",implode(" ,", (explode(",",implode(" '", explode("'", $input_to_search))))))));
+        $input_no_punctuation_possessives =implode(" !", explode("!", implode(" ?",(explode("?",(implode (" .", (explode(".",implode(" ,", (explode(",",implode(" ' ", explode("'", $input_to_search))))))))))))));
         $to_search_array = explode(" ", $input_no_punctuation_possessives );
         $x=0;
         foreach ( $to_search_array as $word ){
             if ( $input_to_find == $word){
-                array_splice($to_search_array, $x, 1, $replacement_text);
+                array_splice($to_search_array, $x, 1, $replacement_text );
                 $this->replacement_count++;
             }
-            elseif ( $word=="," || $word=="'" || $word==".") {
-                // will attach punctuation back to the previous word... hopefully.
+            elseif ( $word=="," || $word=="." || $word=="?" || $word=="!") {
+                // will attach punctuation back to the previous word.
                 $previous_word_w_punctuation = $to_search_array[$x-1] . $word ;
-                array_splice($to_search_array, $x-1, 1, $previous_word_w_punctuation );
+                array_splice($to_search_array, $x-1, 1,$previous_word_w_punctuation);
                 array_splice($to_search_array, $x, 1, "");
-
+            }
+            elseif ($word=="'")
+            {
+              $previous_word_w_punctuation = $to_search_array[$x-1] . $word . $to_search_array[$x+1];
+              array_splice($to_search_array, $x-1, 1,$previous_word_w_punctuation);
+              array_splice($to_search_array, $x, 1, ""); // erase the duplicate single quote.
+              array_splice($to_search_array, $x+1, 1, ""); // erase the duplicate possessive letter.
             }
             $x++;
         }
         $output_array_w_spaces = str_split(implode(" ", $to_search_array));
         $output_array = array();
         $y=0;
-        // will erase space after a punctuation.
+        // will erase space after and before a punctuation.
         foreach ( $output_array_w_spaces as $characters ) {
           if ( $output_array_w_spaces[$y] == " " && $output_array_w_spaces[$y-1] == " "){
             array_splice($output_array_w_spaces, $y, 1, "");
           }
+
+          /// NOTE A) -> see additional-notes.md note A) 
+
           $y++;
         }
         // will erase space after final punctuation.
