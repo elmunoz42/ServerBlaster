@@ -36,11 +36,11 @@ class RepeatCounter
     }
     function setCount($new_count)
     {
-        // $this->count = (int) $new_count;
+        $this->count = (int) $new_count;
     }
     function getCount()
     {
-        // return $this->count;
+        return $this->count;
     }
     function setCountExact($new_count_exact)
     {
