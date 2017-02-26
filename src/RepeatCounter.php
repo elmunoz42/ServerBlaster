@@ -24,7 +24,7 @@ class RepeatCounter
     }
     function getTextToFind()
     {
-        // return $this->text_to_find;
+        return $this->text_to_find;
     }
     function setTextToSearch($new_text_to_search)
     {
