@@ -66,7 +66,7 @@
             //Assert
             $this->assertEquals($input_count , $result);
         }
-    
+
         function test_one_lowercase_match()
         {
             //Arrange

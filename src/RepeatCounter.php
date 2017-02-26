@@ -75,15 +75,15 @@ class RepeatCounter
             }
         }
         if ($this->count==1) {
-            return $this->count . ' match';
+            return $this->getCount() . ' match';
         }else{
-            return $this->count . ' matches';
+            return $this->getCount() . ' matches';
         }
     }
 
     function CountExactRepeats($new_text_to_find, $new_text_to_search)
     {
-        $this->count_exact = 0;
+        $this->setCountExact(0);
         $input_to_find = (string) $new_text_to_find;
         $input_to_search = (string) $new_text_to_search;
         $input_no_punctuation_possessives =implode(" !", explode("!", implode(" ?",(explode("?",(implode (" .", (explode(".",implode(" ,", (explode(",",implode(" ' ", explode("'", $input_to_search))))))))))))));
@@ -94,16 +94,16 @@ class RepeatCounter
             }
         }
         if ($this->count_exact==1) {
-            return $this->count_exact . ' exact match';
+            return $this->getCountExact() . ' exact match';
         }else{
-            return $this->count_exact . ' exact matches';
+            return $this->getCountExact() . ' exact matches';
         }
     }
 
     // CASE SENSITIVE!
     function TextReplace($new_text_to_find, $new_text_to_search, $replacement_text)
     {
-        $this->replacement_count = 0;
+        $this->setReplacementCount(0);
         $input_to_find = (string) $new_text_to_find;
         $input_to_search = (string) $new_text_to_search;
         $input_no_punctuation_possessives =implode(" !", explode("!", implode(" ?",(explode("?",(implode (" .", (explode(".",implode(" ,", (explode(",",implode(" ' ", explode("'", $input_to_search))))))))))))));
