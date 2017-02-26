@@ -44,11 +44,11 @@ class RepeatCounter
     }
     function setCountExact($new_count_exact)
     {
-        // $this->count_exact = (int) $new_count_exact;
+        $this->count_exact = (int) $new_count_exact;
     }
     function getCountExact()
     {
-        // return $this->count_exact;
+        return $this->count_exact;
     }
     function setReplacementCount($new_replacement_count)
     {
