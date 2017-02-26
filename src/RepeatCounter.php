@@ -1,24 +1,65 @@
 <?php
 class RepeatCounter
 {
-    public $text_to_find;
-    public $text_to_search;
-    public $count;
-    public $count_exact;
-    public $replacement_count;
+    private $text_to_find;
+    private $text_to_search;
+    private $count;
+    private $count_exact;
+    private $replacement_count;
 
     function __construct($new_text_to_find, $new_text_to_search)
     {
         $this->text_to_find = $new_text_to_find;
         $this->text_to_search = $new_text_to_search;
-        $this->count = $count;
-        $this->count_exact = $count_exact;
-        $this->replacement_count = $replacement_count;
+        $this->count;
+        $this->count_exact;
+        $this->replacement_count;
 
     }
+
+    // getters and setters
+    function setTextToFind($new_text_to_find)
+    {
+        $this->text_to_find = $new_text_to_find;
+    }
+    function getTextToFind()
+    {
+        // return $this->text_to_find;
+    }
+    function setTextToSearch($new_text_to_search)
+    {
+        $this->text_to_search = $new_text_to_search;
+    }
+    function getTextToSearch()
+    {
+        return $this->text_to_search;
+    }
+    function setCount($new_count)
+    {
+        $this->count = (int) $new_count;
+    }
+    function getCount()
+    {
+        return $this->count;
+    }
+    function setCountExact($new_count_exact)
+    {
+        $this->count_exact = (int) $new_count_exact;
+    }
+    function getCountExact()
+    {
+        return $this->count_exact;
+    }
+    function setReplacementCount($new_replacement_count)
+    {
+        $this->replacement_count = (int) $new_replacement_count;
+    }
+
+
+    // Methods
     function CountRepeats($new_text_to_find, $new_text_to_search)
     {
-        $this->count = 0;
+        $this->setCount(0);
         $input_to_find = strtolower( (string) $new_text_to_find);
         $input_to_search = strtolower( (string) $new_text_to_search);
         $input_no_punctuation_possessives =implode(" !", explode("!", implode(" ?",(explode("?",(implode (" .", (explode(".",implode(" ,", (explode(",",implode(" ' ", explode("'", $input_to_search))))))))))))));
@@ -93,7 +134,7 @@ class RepeatCounter
             array_splice($output_array_w_spaces, $y, 1, "");
           }
 
-          /// NOTE A) -> see additional-notes.md note A) 
+          /// NOTE A) -> see additional-notes.md note A)
 
           $y++;
         }
@@ -105,14 +146,6 @@ class RepeatCounter
         return $output_string;
 
         // I WILL NEVER SAY ANYTHING BAD ABOUT REG EX EVER EVER EVER!!
-    }
-    function getTextToFind()
-    {
-        return $this->text_to_find;
-    }
-    function getTextToSearch()
-    {
-        return $this->text_to_search;
     }
 
 }
