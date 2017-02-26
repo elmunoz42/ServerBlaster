@@ -52,11 +52,11 @@ class RepeatCounter
     }
     function setReplacementCount($new_replacement_count)
     {
-        // $this->replacement_count = (int) $new_replacement_count;
+        $this->replacement_count = (int) $new_replacement_count;
     }
     function getReplacementCount()
     {
-        // return $this->replacement_count;
+        return $this->replacement_count;
     }
 
 
