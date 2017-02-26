@@ -53,19 +53,19 @@
             //Assert
             $this->assertEquals($input_count , $result);
         }
-        // function test_getReplacementCount()
-        // {
-        //     //Arrange
-        //     $test_input_to_match = "apple";
-        //     $test_input_to_search = "apple";
-        //     $test_object = new RepeatCounter($test_input_to_match, $test_input_to_search);
-        //     $input_count = 3;
-        //     $test_object->setCount($input_count);
-        //     //Act
-        //     $result = $test_object->getCount();
-        //     //Assert
-        //     $this->assertEquals($input_count , $result);
-        // }
+        function test_getReplacementCount()
+        {
+            //Arrange
+            $test_input_to_match = "apple";
+            $test_input_to_search = "apple";
+            $test_object = new RepeatCounter($test_input_to_match, $test_input_to_search);
+            $input_count = 3;
+            $test_object->setReplacementCount($input_count);
+            //Act
+            $result = $test_object->getReplacementCount();
+            //Assert
+            $this->assertEquals($input_count , $result);
+        }
         // function test_getTextToSearch()
         // {
         //     //Arrange
