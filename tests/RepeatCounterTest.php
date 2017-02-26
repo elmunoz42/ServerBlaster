@@ -16,17 +16,17 @@
             //Assert
             $this->assertEquals($test_input_to_match, $result);
         }
-        // function test_getTextToFind()
-        // {
-        //     //Arrange
-        //     $test_input_to_match = "apple";
-        //     $test_input_to_search = "apple";
-        //     $test_object = new RepeatCounter($test_input_to_match, $test_input_to_search);
-        //     //Act
-        //     $result = $test_object->CountRepeats($test_input_to_match, $test_input_to_search);
-        //     //Assert
-        //     $this->assertEquals(1 . ' match', $result);
-        // }
+        function test_getTextToSearch()
+        {
+            //Arrange
+            $test_input_to_match = "apple";
+            $test_input_to_search = "apple";
+            $test_object = new RepeatCounter($test_input_to_match, $test_input_to_search);
+            //Act
+            $result = $test_object->getTextToSearch();
+            //Assert
+            $this->assertEquals($test_input_to_search , $result);
+        }
         // function test_one_lowercase_match()
         // {
         //     $test_input_to_match = "apple";

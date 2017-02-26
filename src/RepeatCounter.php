@@ -32,7 +32,7 @@ class RepeatCounter
     }
     function getTextToSearch()
     {
-        return $this->text_to_search;
+        // return $this->text_to_search;
     }
     function setCount($new_count)
     {
