@@ -152,6 +152,58 @@ class RepeatCounter
         // I WILL NEVER SAY ANYTHING BAD ABOUT REG EX EVER EVER EVER!!
     }
 
+    static function joinBlaster($your_classes)
+  {
+    $pairs = array();
+    $limit = count($your_classes);
+    //
+    for($x=0; $x<=($limit - 2); $x++)
+    {
+        for ($y= $x + 1 ; $y <= ($limit - 1); $y++)
+        {
+            $combo = $your_classes[$x] . "|" . $your_classes[$y];
+            array_push($pairs, $combo);
+        }
+    }
+    $commands=array();
+    foreach($pairs as $pair)
+    {
+        $friends = explode("|", $pair);
+        $first_class = $friends[0]; //student
+        $second_class = $friends[1]; // teacher
+        $command = 'SELECT ' . $friends[0] . 's.* FROM ' . $friends[1] . 's JOIN ' . $friends[0] . 's_' . $friends[1] . 's ON (' . $friends[1] . 's.id = ' . $friends[0] . 's_' . $friends[1] . 's.' . $friends[1] . '_id) JOIN ' . $friends[0] . 's ON (' . $friends[0] . 's_' . $friends[1] . 's.' . $friends[0] . '_id = ' . $friends[0] . 's.id) WHERE ' . $friends[1] . 's.id = {$this->getId()};");';
+
+        array_push($commands, $command);
+    }
+    return $commands;
+  }
+    static function joinBlaster2($your_classes)
+  {
+    $pairs = array();
+    $limit = count($your_classes);
+    //
+    for($x=0; $x<=($limit - 2); $x++)
+    {
+        for ($y= $x + 1 ; $y <= ($limit - 1); $y++)
+        {
+            $combo = $your_classes[$x] . "|" . $your_classes[$y];
+            array_push($pairs, $combo);
+        }
+    }
+    $commands=array();
+    foreach($pairs as $pair)
+    {
+        $friends = explode("|", $pair);
+        $first_class = $friends[0]; //teacher
+        $second_class = $friends[1]; // student
+        $command = 'SELECT ' . $friends[1] . 's.* FROM ' . $friends[0] . 's JOIN ' . $friends[0] . 's_' . $friends[1] . 's ON (' . $friends[0] . 's.id = ' . $friends[0] . 's_' . $friends[1] . 's.' . $friends[0] . '_id) JOIN ' . $friends[1] . 's ON (' . $friends[0] . 's_' . $friends[1] . 's.' . $friends[1] . '_id = ' . $friends[0] . 's.id) WHERE ' . $friends[1] . 's.id = {$this->getId()};");';
+
+        array_push($commands, $command);
+    }
+    return $commands;
+  }
+
+
 }
 
  ?>

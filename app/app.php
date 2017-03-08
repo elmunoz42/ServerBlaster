@@ -17,28 +17,12 @@
     // ROOT form page
     $app->get("/", function() use($app) {
 
-        return $app['twig']->render('repeat-counter-form.html.twig');
+        $commands = RepeatCounter::joinBlaster(['account', 'course', 'image', 'lesson', 'school', 'service', 'student', 'teacher']);
+        $commands2 = RepeatCounter::joinBlaster2(['account', 'course', 'image', 'lesson', 'school', 'service', 'student', 'teacher']);
+        return $app['twig']->render('repeat-counter-form.html.twig', array( 'commands'=>$commands, 'commands2'=>$commands2 ));
 
     });
 
-    // word match page
-    $app->post("/display", function() use($app) {
-
-
-        $newWordProcess = new RepeatCounter($_POST['word_to_match'], $_POST['word_to_search']);
-        $newWordToMatch = $_POST['word_to_match'];
-        $newWordToSearch = $_POST['word_to_search'];
-        $newWordToReplace = $_POST['word_to_replace'];
-        $exactMatches = $newWordProcess->CountExactRepeats($newWordToMatch, $newWordToSearch);
-        $allMatches = $newWordProcess->CountRepeats($newWordToMatch, $newWordToSearch);
-        if ( $newWordToReplace == "" ){
-            $newText = $newWordProcess->TextReplace($newWordToMatch, $newWordToSearch, $newWordToMatch);
-        }else{
-        $newText = $newWordProcess->TextReplace($newWordToMatch, $newWordToSearch, $newWordToReplace);
-        }
-        return $app['twig']->render('repeat-counter-display.html.twig', array( 'exactMatches'=>$exactMatches, 'allMatches'=>$allMatches, 'newText' => $newText ));
-
-    });
 
      return $app;
 ?>
